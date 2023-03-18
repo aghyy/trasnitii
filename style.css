@@ -1,0 +1,755 @@
+body, html{
+	color: #4C4637;
+	background-color: #EBCD53;
+	margin: 0px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+#carousel {
+	height: 450px;
+	background-color: #4C4637;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;  
+    display: flex;
+    flex-direction: column;
+	width: 200px; 
+	margin-left: 10px;
+}		
+  
+::-webkit-scrollbar {
+	display: none;
+}
+
+.plyr {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: #000;
+}
+
+:root {
+	--plyr-color-main: #4C4637;
+}
+
+.fa {
+	position: relative;
+	top: -3px;
+}
+
+.container {
+	background-image: url('https://www.mediafire.com/convkey/8834/ayx4wwrd7qjzata9g.jpg');
+	background-size: cover;
+	min-width: 600px;
+	max-width: 600px;
+	height: 450px;
+	border: none;
+}
+
+.thumbnails {
+	-webkit-mask-image: linear-gradient(black, black, transparent);
+	mask-image: linear-gradient(black, black, transparent);
+	width: 200px; 
+	height: auto; 
+	pointer-events: none;
+}
+
+#maindiv {
+	display: flex;
+	margin-left: 10px;
+}
+
+#outerDiv {
+	width: 820px; 
+	margin: auto !important;
+}
+
+#outerCarousel {
+	display: flex; 
+	flex-direction: column; 
+	margin-top: -25px;
+}
+
+#bottombtns {
+	display: flex; 
+	flex-direction: row;
+}
+
+.textdiv {
+	position: absolute; 
+	bottom: 15px; 
+	margin: 0px 10px 0px 10px;
+	padding: 0px 10px 0px 10px;
+	text-shadow: 1px 1px 3px #4C4637;
+}
+
+.episodebox {
+	white-space: normal; 
+	text-align: left; 
+	width: 200px;
+	position: relative; 
+	margin-bottom: 10px; 
+	background: #4C4637;
+	color: #fff;
+	transform: scale(1.03);
+	transition: transform .2s;
+}
+
+.episodebox:last-child {
+	margin-bottom: 0px; 
+}
+
+.episodebox:hover {
+	z-index: 10;
+	transform: scale(1.08);
+} 
+
+.logo {
+	height: 100px;
+	width: 187.8682841168px;
+	pointer-events: auto;
+	margin: 10px 90px 0px 0px;
+	float: right;
+	background-image: url('images/logo.png');
+	background-size: cover;
+}
+
+#controlbtnPrev, #controlbtnNext {
+	width: 300px;
+	height: 25px;
+	border-radius: 0px;
+	background-color: #4C4637;
+	border: none;
+	color: #fff;
+	font-size: 20px;
+}
+
+#controlbtnPrev {
+	border-bottom-left-radius: 10px;
+}
+
+#scrollbtnTop, #scrollbtnBottom {
+	width: 200px;
+	height: 25px;
+	border-radius: 0px;
+	background-color: #4C4637;
+	border: none;
+	color: #fff;
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+#scrollbtnTop {
+	border-top-right-radius: 10px;
+}
+
+#scrollbtnBottom {
+	border-bottom-right-radius: 10px;
+}
+
+#season {
+	width: 600px;
+	height: 25px;
+	border-radius: 0px;
+	border-top-right-radius: 10px;
+	background-color: #4C4637;
+	border: none;
+	color: #fff;
+	margin-left: 10px;
+	border-top-left-radius: 10px;
+}
+
+.synopsis {
+	display: flex; 
+	flex-direction: column; 
+	margin: 30px 55px 0px 120px;
+}
+
+.navigation {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 70px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-sizing: initial;
+	border-left: 5px solid #4C4637;
+	background: #4C4637;
+	transition: width 0.5s;
+	overflow-x: hidden;
+	z-index: 20;
+}
+
+.navigation.active {
+	width: 300px;
+}
+
+.navigation ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding-left: 5px;
+	padding-top: 40px;
+}
+
+.navigation ul li {
+	position: relative;
+	list-style: none;
+	width: 100%;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+
+.navigation ul li.active {
+	background: #EBCD53;
+}
+
+.navigation ul li b:nth-child(1) {
+	position: absolute;
+	top: -20px;
+	height: 20px;
+	width: 100%;
+	background: #EBCD53;
+	display: none;
+}
+
+.navigation ul li b:nth-child(1):before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-bottom-right-radius: 20px;
+	background: #4C4637;
+}
+
+.navigation ul li b:nth-child(2) {
+	position: absolute;
+	bottom: -20px;
+	height: 20px;
+	width: 100%;
+	background: #EBCD53;
+	display: none;
+}
+
+.navigation ul li b:nth-child(2):before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-top-right-radius: 20px;
+	background: #4C4637;
+}
+
+.navigation ul li.active b:nth-child(1), .navigation ul li.active b:nth-child(2) {
+	display: block;
+}
+
+.navigation ul li a {
+	position: relative;
+	display: block;
+	width: 100%;
+	display: flex;
+	text-decoration: none;
+	color: #fff;
+}
+
+.navigation ul li.active a {
+	color: #333;
+}
+
+.navigation ul li a .icon {
+	position: relative;
+	display: block;
+	min-width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+	font-size: 1.5em;
+	position: relative;
+	top: 7px;
+}
+
+.navigation ul li a .title {
+	position: relative;
+	display: block;
+	padding-left: 10px;
+	height: 60px;
+	line-height: 60px;
+	white-space: normal;
+}
+
+.toggle {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	background: #4C4637;
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 20;
+}
+
+.toggle.active {
+	background: #BF5847;
+}
+
+.toggle ion-icon {
+	position: absolute;
+	color: #fff;
+	font-size: 34px;
+	display: none;
+}
+
+.toggle ion-icon.open, .toggle.active ion-icon.close {
+	display: block;
+}
+
+.toggle ion-icon.close, .toggle.active ion-icon.open {
+	display: none;
+}
+
+#textbox {
+	border: 1px solid;
+	border-top: none;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	width: 150px;
+	height: 100px;
+	position: relative;
+	top: -7px;
+	display: flex;
+	flex-direction: column;
+}
+
+#actorbox {
+	margin-bottom: 20px;
+}
+
+#actorbox img {
+	width: 150px;
+	height: 225px;
+	pointer-events: none;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
+}
+
+#actorname {
+	padding: 0px 10px 0px 10px;
+	font-size: 17px;
+}
+
+#charactername {
+	padding: 0px 10px 10px 10px;
+	font-size: 12px;
+}
+
+#maingrid {
+	margin-left: 105px;
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto auto;
+	margin-top: 100px;
+}
+
+h1 {
+	position: absolute; 
+	font-size: 40px;
+	margin-top: 30px;
+	margin-left: 120px;
+}
+
+h3 {
+	position: absolute; 
+	font-size: 40px;
+	margin-top: 30px;
+	margin-left: 125px;
+}
+
+#searchbar {
+	color: #fff;
+	background-color: #4C4637;
+	padding: 10px;
+	border: none;
+	width: 900px;
+	display: block;
+	margin: 100px auto 0px;
+}
+
+#searchbar:focus {
+	outline: 0;
+}
+
+#list-holder {
+	margin: 25px auto 0px;
+	overflow-x: hidden;
+	width: 900px;
+	max-height: 500px;
+	z-index: 10;
+	position: absolute;
+	left: 0; 
+	right: 0; 
+	overflow-y: scroll;
+	background-color: rgba(205, 175, 53, 0.95);
+	cursor: pointer;
+}
+
+#list-holder li {
+	padding: 10px;
+}
+
+#list-holder li:hover {
+	background-color: rgba(215, 185, 63, 0.95);
+}
+
+.os_poll {
+	margin-left: 105px;
+	margin-right: 30px;
+}
+
+#progress {
+	width: 700px;
+	height: 200px;
+	margin: auto;
+	border-radius: 15px;
+	border: 1px solid;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
+	position: relative;
+}
+
+#progress-thumbnail {
+	height: 198px;
+	width: auto;
+	pointer-events: none;
+	transform: scale(1.03);
+}
+
+#progress-textdiv {
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#progress-title, #outerText {
+	font-size: 18px;
+}
+
+#outerProgress {
+	width: 700px;
+	margin: auto;
+	display: none;
+	position: relative;
+}
+
+#progress-imgdiv {
+	height: 198px;
+	width: auto;
+}
+
+#progress-bar {
+	height: 4px; 
+	border-width: 0; 
+	color: #BF5847; 
+	background-color: #BF5847; 
+	width: 0px; 
+	position: absolute;
+	bottom: 0px;
+}
+
+#castimg {
+	width: 75%; 
+	float: right; 
+	pointer-events: none;
+}
+
+#infoText {
+	display: none; 
+	margin: 30px 50px 0px 120px;
+}
+
+#homeimg {
+	margin: 50px 0px 50px 105px; 
+	pointer-events: none;
+	width: 60%;
+}
+
+@media screen and (max-width: 1280px) {
+	
+	#maingrid {
+		margin-left: 100px;
+		grid-template-columns: auto auto auto auto auto;
+	}
+	
+	#carousel {
+		margin-left: 10px;
+	}
+	
+	#searchbar, #list-holder {
+		width: 700px;
+	}
+	
+}
+
+@media screen and (max-width: 980px) {
+	
+	#searchbar, #list-holder {
+		width: 550px;
+	}
+	
+	.textdiv {
+		font-size: 15px;
+		bottom: 15px; 
+		margin: 0px 15px 0px 15px;
+		padding: 0px 10px 0px 10px;
+	}
+	
+	.container {
+		min-width: 550px;
+		max-width: 550px;
+		max-height: 415.1089247958px;
+	}
+	
+	#controlbtnPrev, #controlbtnNext {
+		width: 275px;
+		height: 25px;
+		border-radius: 0px;
+		margin-top: -25px;
+	}
+	
+	#scrollbtnTop, #scrollbtnBottom {
+		display: none;
+	}
+	
+	.episodebox, .thumbnails {
+		width: 200px;
+		height: calc(200px * (2/3));
+	}
+	
+	#season {
+		min-width: 550px;
+		max-width: 550px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px !important;
+	}
+	
+	#carousel {
+		height: calc(200px * (2/3));
+		width: 550px;
+		margin-left: 0px;
+		overflow-x: scroll;
+	    overflow-y: hidden;
+	    flex-direction: row;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+	}
+	
+	#bottombtns {
+		margin-top: 25px;
+	}
+	
+	#outerCarousel {
+		margin-top: 10px;
+	}
+	
+	#maindiv {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	#outerDiv {
+		max-width: 570px;
+	}
+	
+	.navigation {
+		visibility: hidden;
+		transition: width 0.5s;
+	}
+	
+	.navigation.active {
+		visibility: visible;
+		width: 250px;
+	}
+	
+	.synopsis {
+		margin: 30px 20px 0px 20px;
+	}
+	
+	#castimg {
+		width: 100%;
+	}
+	
+	#infoText {
+		margin: 30px 20px 0px 20px;
+	}
+	
+	#outerProgress {
+		width: 80%;
+	}
+	
+	#progress-thumbnail, #progress-imgdiv {
+		height: 148px;
+	}
+	
+	#progress {
+		width: 100%;
+		height: 150px;
+	}
+	
+	h1, h3 {
+		font-size: 30px;
+		margin-top: 40px;
+		margin-left: 40px;
+	}
+	
+	#homeimg {
+		width: calc(100% - 40px);
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	
+	#homeInfo, .os_poll, #coverSurvey {
+		margin-left: 20px !important;
+		margin-right: 20px !important;
+	}
+	
+	#maingrid {
+		margin-left: 15px;
+		grid-template-columns: auto auto auto auto;
+	}
+
+}
+
+@media screen and (max-width: 670px) {
+
+	#searchbar {
+		width: 350px;
+		margin-top: 50px;
+	}
+	
+	#list-holder {
+		width: 350px;
+	}
+	
+	.logo {
+		display: block;
+		width: 200px;
+		height: 106.4575646373;
+		margin: auto;
+		float: none;
+	}
+	
+	#progress {
+		flex-direction: column;
+		height: 500px;
+	}
+	
+	#progress-thumbnail {
+		height: 220px;
+	}
+	
+	h1, h3 {
+		top: 150px;
+		left: 20px;
+		margin: 0px;
+	}
+
+	#homeInfo {
+		margin-top: 50px !important;
+	}
+	
+	.os_poll {
+		margin-top: -50px;;
+	}
+	
+	#maingrid {
+		margin-top: 50px;
+		margin-left: 27.5px;
+		grid-template-columns: auto auto;
+	}
+	
+	.textdiv {
+		font-size: 12px;
+		bottom: 10px; 
+		margin: 0px 15px 0px 15px;
+		padding: 0px 5px 0px 5px;
+	}
+	
+	.container {
+		min-width: 350px;
+		max-width: 350px;
+		max-height: 264.1602248701px;
+	}
+	
+	#controlbtnPrev, #controlbtnNext {
+		width: 175px;
+		height: 25px;
+		border-radius: 0px;
+	}
+	
+	#scrollbtnTop, #scrollbtnBottom {
+		display: none;
+	}
+	
+	.episodebox, .thumbnails {
+		width: 150px;
+		height: calc(150px * (2/3));
+	}
+	
+	#season {
+		min-width: 350px;
+		max-width: 350px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	
+	#carousel {
+		height: calc(150px * (2/3));
+		width: 350px;
+		margin-left: 0px;
+		overflow-x: scroll;
+	    overflow-y: hidden;
+	    flex-direction: row;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+	}
+	
+	#bottombtns {
+		margin-top: 25px;
+	}
+	
+	#outerCarousel {
+		margin-top: 10px;
+	}
+	
+	#maindiv {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	#outerDiv {
+		max-width: 370px;
+		margin-top: -50px !important;
+	}
+}
